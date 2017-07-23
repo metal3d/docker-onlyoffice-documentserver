@@ -1,6 +1,6 @@
 FROM centos
 
-EXPOSE 8000
+EXPOSE 8000 8080 3000 80 443 
 
 
 ADD onlyoffice.repo /etc/yum.repos.d/onlyoffice.repo

@@ -18,7 +18,8 @@ npm list -g json >/dev/null 2>&1 || npm install -g json >/dev/null 2>&1
 
 restart_services() {
     sed -i "40d" /etc/nginx/nginx.conf
-    mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.old
+    [ -a /etc/nginx/conf.d/default.conf ] && mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.old
+    nginx -s reload
 	echo "OK"
 }
 
