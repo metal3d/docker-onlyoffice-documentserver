@@ -3,7 +3,6 @@ services:
   postgres:
     image: postgres
     env_file: environ
-  
 
   rabbit:
     image: rabbitmq:3
@@ -14,8 +13,7 @@ services:
     env_file: environ
 
   onlyoffice:
-    #image: metal3d/onlyoffice-documentserver
-    build: .
+    image: metal3d/onlyoffice-documentserver
     env_file: environ
     depends_on:
       - postgres
