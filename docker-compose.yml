@@ -1,0 +1,29 @@
+version: "2"
+services:
+  postgres:
+    image: postgres
+    env_file: environ
+  
+
+  rabbit:
+    image: rabbitmq:3
+    env_file: environ
+
+  redis:
+    image: redis
+    env_file: environ
+
+  onlyoffice:
+    #image: metal3d/onlyoffice-documentserver
+    build: .
+    env_file: environ
+    depends_on:
+      - postgres
+      - redis
+      - rabbit
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+
+
